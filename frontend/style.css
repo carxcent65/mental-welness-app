@@ -1,0 +1,181 @@
+/* ---------------------------
+   GLOBAL PAGE STYLING
+---------------------------- */
+body {
+  font-family: Arial, sans-serif;
+  background: #f6f9fc;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+}
+
+header {
+  background: #4a90e2;
+  color: white;
+  padding: 15px 0;
+  font-size: 22px;
+  font-weight: bold;
+  letter-spacing: 0.5px;
+}
+
+/* ---------------------------
+   NAVIGATION BAR (Unified)
+---------------------------- */
+.site-nav {
+  background: #e9eff6;
+  padding: 10px;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  border-bottom: 1px solid #d0d8e2;
+  gap: 15px;
+}
+
+.site-nav a {
+  margin: 6px 10px;
+  text-decoration: none;
+  color: #333;
+  font-weight: bold;
+  font-size: 16px;
+  padding: 8px 14px;
+  border-radius: 6px;
+  transition: 0.3s;
+}
+
+.site-nav a:hover {
+  background-color: #4a90e2;
+  color: white;
+}
+
+/* ---------------------------
+   MAIN CONTAINER
+---------------------------- */
+.container {
+  width: 80%;
+  margin: 30px auto;
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  text-align: left;
+}
+
+/* ---------------------------
+   INPUTS, TEXTAREAS, BUTTONS
+---------------------------- */
+input, textarea, select, button {
+  padding: 10px;
+  margin: 10px 0;
+  width: 96%;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 15px;
+  box-sizing: border-box;
+}
+
+textarea {
+  resize: vertical;
+  min-height: 80px;
+}
+
+button {
+  background-color: #4a90e2;
+  color: white;
+  cursor: pointer;
+  width: 160px;
+  border: none;
+  transition: background-color 0.3s;
+  font-weight: bold;
+}
+
+button:hover {
+  background-color: #357ABD;
+}
+
+/* ---------------------------
+   ARTICLE PAGE STYLING
+---------------------------- */
+.article-card {
+  border: 1px solid #e0e6ee;
+  background: #fafcff;
+  padding: 15px 20px;
+  margin-bottom: 15px;
+  border-radius: 8px;
+  text-align: left;
+  transition: 0.2s;
+}
+
+.article-card:hover {
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.article-card h3 {
+  color: #1b365f;
+  margin-top: 0;
+}
+
+.article-card p {
+  color: #333;
+  line-height: 1.5;
+}
+
+.article-card a {
+  color: #4a90e2;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.article-card a:hover {
+  text-decoration: underline;
+}
+
+/* ---------------------------
+   FORUM POSTS / MOOD ENTRIES
+---------------------------- */
+.post, .mood-entry, .journal-entry {
+  border: 1px solid #e0e6ee;
+  background: #fdfdfd;
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 6px;
+}
+
+.post h4, .mood-entry h4, .journal-entry h4 {
+  margin: 0 0 8px;
+  color: #4a90e2;
+}
+
+/* ---------------------------
+   FOOTER (Optional)
+---------------------------- */
+footer {
+  background: #4a90e2;
+  color: white;
+  padding: 10px;
+  text-align: center;
+  margin-top: 30px;
+}
+
+/* ---------------------------
+   RESPONSIVENESS
+---------------------------- */
+@media (max-width: 768px) {
+  .container {
+    width: 90%;
+    padding: 15px;
+  }
+
+  .site-nav {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .site-nav a {
+    width: 80%;
+    text-align: center;
+  }
+
+  input, textarea, button {
+    width: 100%;
+  }
+}

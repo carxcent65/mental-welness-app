@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Journal</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>Journal</header>
+  <nav><a href="index.html">Home</a></nav>
+
+  <div class="container">
+    <h3>Write Your Journal Entry</h3>
+    <textarea id="entry" placeholder="Write your thoughts..."></textarea><br>
+    <button onclick="saveJournal()">Save Entry</button>
+
+    <h3>Past Entries</h3>
+    <ul id="journalList"></ul>
+  </div>
+
+  <script>
+    const API = "http://127.0.0.1:5000";
+
+    async function saveJournal() {
+      const entry = document.getElementById('entry').value;
+      await fetch(`${API}/add_journal`, {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify({ entry })
+      });
+      loadJournals();
+    }
+
+    async function loadJournals() {
+      const res = await fetch(`${API}/get_journals`);
+      const journals = await res.json();
+      document.getElementById('journalList').innerHTML =
+        journals.map(j => `<li>${j.date}: ${j.entry}</li>`).join('');
+    }
+
+    loadJournals();
+  </script>
+</body>
+</html>
