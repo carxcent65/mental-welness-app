@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Community Forum</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>Community Forum</header>
+  <nav><a href="index.html">Home</a></nav>
+
+  <div class="container">
+    <h3>Post a Message</h3>
+    <input id="title" placeholder="Post title"><br>
+    <textarea id="body" placeholder="Write your message..."></textarea><br>
+    <button onclick="savePost()">Submit Post</button>
+
+    <h3>All Posts</h3>
+    <ul id="postList"></ul>
+  </div>
+
+  <script>
+    const API = "http://127.0.0.1:5000";
+
+    async function savePost() {
+      const data = {
+        title: document.getElementById('title').value,
+        body: document.getElementById('body').value
+      };
+      await fetch(`${API}/add_post`, {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify(data)
+      });
+      loadPosts();
+    }
+
+    async function loadPosts() {
+      const res = await fetch(`${API}/get_posts`);
+      const posts = await res.json();
+      document.getElementById('postList').innerHTML =
+        posts.map(p => `<li><strong>${p.title}</strong> (${p.date})<br>${p.body}</li>`).join('');
+    }
+
+    loadPosts();
+  </script>
+</body>
+</html>
